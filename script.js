@@ -5,18 +5,29 @@ const btnCloseModal = document.querySelector('.close-modal');
 const btnsOpenModal = document.querySelectorAll('.show-modal');
 // console.log(btnsOpenModal)
 
-// Loping the button
-for(let i=0;i<btnsOpenModal.length ;i++ ){
-    console.log(btnsOpenModal [i].addEventListener('click',()=>{
-        console.log("Button Click");
-        modal.classList.remove('hidden')
-        overlay.classList.remove('hidden')
-        // modal.style.display="block"
-    }))
+
+const closeModal = () => {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  };
+const openModals=()=>{
+    console.log('Button Click');
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+    // modal.style.display="block"
 }
 
-btnCloseModal.addEventListener('click',()=>{
-    modal.classList.add('hidden')
-    overlay.classList.add('hidden')
-   
-})
+
+
+for (let i = 0; i < btnsOpenModal.length; i++) {
+  console.log(
+    btnsOpenModal[i].addEventListener('click',openModals)
+  );
+}
+// Close Modal
+btnCloseModal.addEventListener('click', closeModal);
+// Close Modal With Overlay
+overlay.addEventListener('click', closeModal);
+
+
+// KeyPress Methods
